@@ -30,27 +30,21 @@ public class MenuUtama extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         sidepanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        btn_reg_anggota = new javax.swing.JButton();
+        btn_side_reg_anggota = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        btn_reg_admin = new javax.swing.JButton();
+        btn_side_reg_admin = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        btn_side_inputbuku = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        btn_side_caribuku = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        btn_side_pinjam = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        btn_side_logout = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        btn_side_kembali = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        btn_side_cetak1 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -88,18 +82,18 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(82, 50, 150));
 
-        btn_reg_anggota.setBackground(new java.awt.Color(82, 82, 180));
-        btn_reg_anggota.setForeground(new java.awt.Color(240, 240, 240));
-        btn_reg_anggota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_registration_30px.png"))); // NOI18N
-        btn_reg_anggota.setText("Register Anggota");
-        btn_reg_anggota.setToolTipText("");
-        btn_reg_anggota.setBorderPainted(false);
-        btn_reg_anggota.setContentAreaFilled(false);
-        btn_reg_anggota.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_reg_anggota.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn_reg_anggota.addActionListener(new java.awt.event.ActionListener() {
+        btn_side_reg_anggota.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_reg_anggota.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_reg_anggota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_registration_30px.png"))); // NOI18N
+        btn_side_reg_anggota.setText("Register Anggota");
+        btn_side_reg_anggota.setToolTipText("");
+        btn_side_reg_anggota.setBorderPainted(false);
+        btn_side_reg_anggota.setContentAreaFilled(false);
+        btn_side_reg_anggota.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_reg_anggota.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_reg_anggota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_reg_anggotaActionPerformed(evt);
+                btn_side_reg_anggotaActionPerformed(evt);
             }
         });
 
@@ -107,33 +101,31 @@ public class MenuUtama extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(btn_reg_anggota, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_side_reg_anggota, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(btn_reg_anggota)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(btn_side_reg_anggota, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        sidepanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 300, 40));
+        sidepanel.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 300, 50));
 
         jPanel5.setBackground(new java.awt.Color(82, 82, 180));
 
-        btn_reg_admin.setBackground(new java.awt.Color(82, 82, 180));
-        btn_reg_admin.setForeground(new java.awt.Color(240, 240, 240));
-        btn_reg_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_admin_settings_male_30px.png"))); // NOI18N
-        btn_reg_admin.setText("Register Admin");
-        btn_reg_admin.setToolTipText("");
-        btn_reg_admin.setBorderPainted(false);
-        btn_reg_admin.setContentAreaFilled(false);
-        btn_reg_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_reg_admin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn_reg_admin.addActionListener(new java.awt.event.ActionListener() {
+        btn_side_reg_admin.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_reg_admin.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_reg_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_admin_settings_male_30px.png"))); // NOI18N
+        btn_side_reg_admin.setText("Register Admin");
+        btn_side_reg_admin.setToolTipText("");
+        btn_side_reg_admin.setBorderPainted(false);
+        btn_side_reg_admin.setContentAreaFilled(false);
+        btn_side_reg_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_reg_admin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_reg_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_reg_adminActionPerformed(evt);
+                btn_side_reg_adminActionPerformed(evt);
             }
         });
 
@@ -141,195 +133,207 @@ public class MenuUtama extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_reg_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(btn_side_reg_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(btn_reg_admin)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(btn_side_reg_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        sidepanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, 40));
+        sidepanel.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, 50));
 
         jPanel6.setBackground(new java.awt.Color(82, 50, 150));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_add_book_30px.png"))); // NOI18N
-
-        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel6.setText("Input Buku Baru");
+        btn_side_inputbuku.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_inputbuku.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_inputbuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_add_book_30px.png"))); // NOI18N
+        btn_side_inputbuku.setText("Input Buku Baru");
+        btn_side_inputbuku.setToolTipText("");
+        btn_side_inputbuku.setBorderPainted(false);
+        btn_side_inputbuku.setContentAreaFilled(false);
+        btn_side_inputbuku.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_inputbuku.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_inputbuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_inputbukuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btn_side_inputbuku, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_side_inputbuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sidepanel.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 300, 50));
 
         jPanel7.setBackground(new java.awt.Color(82, 82, 180));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_search_30px.png"))); // NOI18N
-
-        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel8.setText("Cari Buku");
+        btn_side_caribuku.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_caribuku.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_caribuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_search_30px.png"))); // NOI18N
+        btn_side_caribuku.setText("Cari Buku");
+        btn_side_caribuku.setToolTipText("");
+        btn_side_caribuku.setBorderPainted(false);
+        btn_side_caribuku.setContentAreaFilled(false);
+        btn_side_caribuku.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_caribuku.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_caribuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_caribukuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btn_side_caribuku, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_side_caribuku, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sidepanel.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, 50));
 
         jPanel8.setBackground(new java.awt.Color(82, 50, 150));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_borrow_book_30px.png"))); // NOI18N
-
-        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel10.setText("Peminjaman");
+        btn_side_pinjam.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_pinjam.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_pinjam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_borrow_book_30px.png"))); // NOI18N
+        btn_side_pinjam.setText("Peminjaman");
+        btn_side_pinjam.setToolTipText("");
+        btn_side_pinjam.setBorderPainted(false);
+        btn_side_pinjam.setContentAreaFilled(false);
+        btn_side_pinjam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_pinjam.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_pinjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_pinjamActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btn_side_pinjam, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_side_pinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sidepanel.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, 51));
 
         jPanel10.setBackground(new java.awt.Color(82, 50, 150));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_sign_out_30px_1.png"))); // NOI18N
-
-        jLabel14.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel14.setText("Logout");
+        btn_side_logout.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_logout.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_admin_settings_male_30px.png"))); // NOI18N
+        btn_side_logout.setText("Cetak Laporan");
+        btn_side_logout.setToolTipText("");
+        btn_side_logout.setBorderPainted(false);
+        btn_side_logout.setContentAreaFilled(false);
+        btn_side_logout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_side_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btn_side_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        sidepanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, -1, 51));
+        sidepanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, -1, 51));
 
         jPanel9.setBackground(new java.awt.Color(82, 82, 180));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_return_book_30px.png"))); // NOI18N
-
-        jLabel12.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel12.setText("Pengembalian");
+        btn_side_kembali.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_kembali.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_return_book_30px.png"))); // NOI18N
+        btn_side_kembali.setText("Pengembalian");
+        btn_side_kembali.setToolTipText("");
+        btn_side_kembali.setBorderPainted(false);
+        btn_side_kembali.setContentAreaFilled(false);
+        btn_side_kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_kembali.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_kembaliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btn_side_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_side_kembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sidepanel.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, 50));
 
         jPanel11.setBackground(new java.awt.Color(82, 50, 150));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_print_30px.png"))); // NOI18N
-
-        jLabel16.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel16.setText("Cetak Laporan");
+        btn_side_cetak1.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_cetak1.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_cetak1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_print_30px.png"))); // NOI18N
+        btn_side_cetak1.setText("Cetak Laporan");
+        btn_side_cetak1.setToolTipText("");
+        btn_side_cetak1.setBorderPainted(false);
+        btn_side_cetak1.setContentAreaFilled(false);
+        btn_side_cetak1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_cetak1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_cetak1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_cetak1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btn_side_cetak1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_side_cetak1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         sidepanel.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, -1, 51));
@@ -616,17 +620,17 @@ public class MenuUtama extends javax.swing.JFrame {
         panel_reg_anggota.setVisible(false);
     }//GEN-LAST:event_btn_exit_panel_registerActionPerformed
 
-    private void btn_reg_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reg_adminActionPerformed
+    private void btn_side_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_logoutActionPerformed
         // TODO add your handling code here:
         panel_reg_admin.setVisible(true);
         panel_reg_anggota.setVisible(false);
-    }//GEN-LAST:event_btn_reg_adminActionPerformed
+    }//GEN-LAST:event_btn_side_logoutActionPerformed
 
-    private void btn_reg_anggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reg_anggotaActionPerformed
+    private void btn_side_reg_anggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_reg_anggotaActionPerformed
         // TODO add your handling code here:
         panel_reg_anggota.setVisible(true);
         panel_reg_admin.setVisible(false);
-    }//GEN-LAST:event_btn_reg_anggotaActionPerformed
+    }//GEN-LAST:event_btn_side_reg_anggotaActionPerformed
 
     private void f_password1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_password1ActionPerformed
         // TODO add your handling code here:
@@ -644,6 +648,30 @@ public class MenuUtama extends javax.swing.JFrame {
     private void btn_p_reg_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_p_reg_adminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_p_reg_adminActionPerformed
+
+    private void btn_side_reg_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_reg_adminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_side_reg_adminActionPerformed
+
+    private void btn_side_inputbukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_inputbukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_side_inputbukuActionPerformed
+
+    private void btn_side_caribukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_caribukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_side_caribukuActionPerformed
+
+    private void btn_side_pinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_pinjamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_side_pinjamActionPerformed
+
+    private void btn_side_kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_kembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_side_kembaliActionPerformed
+
+    private void btn_side_cetak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_cetak1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_side_cetak1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -686,21 +714,20 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JButton btn_exit_panel_register;
     private javax.swing.JButton btn_p_reg_admin;
     private javax.swing.JButton btn_p_reg_anggota;
-    private javax.swing.JButton btn_reg_admin;
-    private javax.swing.JButton btn_reg_anggota;
+    private javax.swing.JButton btn_side_caribuku;
+    private javax.swing.JButton btn_side_cetak1;
+    private javax.swing.JButton btn_side_inputbuku;
+    private javax.swing.JButton btn_side_kembali;
+    private javax.swing.JButton btn_side_logout;
+    private javax.swing.JButton btn_side_pinjam;
+    private javax.swing.JButton btn_side_reg_admin;
+    private javax.swing.JButton btn_side_reg_anggota;
     private javax.swing.JTextField f_nama;
     private javax.swing.JTextField f_nama1;
     private javax.swing.JPasswordField f_password;
     private javax.swing.JPasswordField f_password1;
     private javax.swing.JTextField f_username;
     private javax.swing.JTextField f_username1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -713,11 +740,6 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
