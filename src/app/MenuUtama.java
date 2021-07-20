@@ -16,9 +16,8 @@ public class MenuUtama extends javax.swing.JFrame {
      */
     public MenuUtama() {
         initComponents();
-        panel_reg_anggota.setVisible(false);
-        panel_reg_admin.setVisible(false);
-        sidepanel.setVisible(true);
+        panel_login.setVisible(true);
+        panel_menu_utama.setVisible(false);
         
     }
 
@@ -33,7 +32,23 @@ public class MenuUtama extends javax.swing.JFrame {
 
         btngroup_gender = new javax.swing.ButtonGroup();
         btngroup_kategori = new javax.swing.ButtonGroup();
-        bg = new javax.swing.JPanel();
+        panel_login = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        banner_login = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        f_login_username = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        f_login_password = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        btn_login = new javax.swing.JButton();
+        banner_login1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        panel_menu_utama = new javax.swing.JPanel();
         sidepanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         btn_side_reg_anggota = new javax.swing.JButton();
@@ -122,7 +137,165 @@ public class MenuUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_login.setBackground(new java.awt.Color(5, 55, 66));
+
+        jPanel17.setBackground(new java.awt.Color(162, 219, 250));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        banner_login.setBackground(new java.awt.Color(57, 162, 219));
+
+        jLabel2.setBackground(new java.awt.Color(232, 240, 242));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(232, 240, 242));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("SISTEM INFORMASI PERPUSTAKAAN SMK LENTERA BANGSA II");
+
+        javax.swing.GroupLayout banner_loginLayout = new javax.swing.GroupLayout(banner_login);
+        banner_login.setLayout(banner_loginLayout);
+        banner_loginLayout.setHorizontalGroup(
+            banner_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+        );
+        banner_loginLayout.setVerticalGroup(
+            banner_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, banner_loginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
+        );
+
+        jPanel17.add(banner_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 50));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_reading_96px.png"))); // NOI18N
+        jPanel17.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_wikipedia_logo_96px.png"))); // NOI18N
+        jPanel17.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 100, 90));
+
+        jPanel18.setBackground(new java.awt.Color(232, 240, 242));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_admin_settings_male_30px.png"))); // NOI18N
+        jLabel9.setText("Username");
+
+        f_login_username.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        f_login_username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f_login_usernameActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_password_30px_2.png"))); // NOI18N
+        jLabel10.setText("Password");
+
+        f_login_password.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("LOGIN PUSTAKAWAN PORTAL");
+
+        jPanel19.setBackground(new java.awt.Color(5, 55, 66));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_login.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btn_login.setForeground(new java.awt.Color(255, 255, 255));
+        btn_login.setText("LOGIN");
+        btn_login.setContentAreaFilled(false);
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
+        jPanel19.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 60));
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(f_login_username)
+                            .addComponent(f_login_password, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 71, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_login_username, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_login_password, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel17.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 530, 290));
+
+        banner_login1.setBackground(new java.awt.Color(57, 162, 219));
+
+        jLabel12.setBackground(new java.awt.Color(232, 240, 242));
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(232, 240, 242));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("MyPerpus V0.1 2021");
+
+        javax.swing.GroupLayout banner_login1Layout = new javax.swing.GroupLayout(banner_login1);
+        banner_login1.setLayout(banner_login1Layout);
+        banner_login1Layout.setHorizontalGroup(
+            banner_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+        );
+        banner_login1Layout.setVerticalGroup(
+            banner_login1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, banner_login1Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addContainerGap())
+        );
+
+        jPanel17.add(banner_login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 1200, 40));
+
+        javax.swing.GroupLayout panel_loginLayout = new javax.swing.GroupLayout(panel_login);
+        panel_login.setLayout(panel_loginLayout);
+        panel_loginLayout.setHorizontalGroup(
+            panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panel_loginLayout.setVerticalGroup(
+            panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        panel_menu_utama.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sidepanel.setBackground(new java.awt.Color(82, 0, 106));
         sidepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -393,7 +566,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel19.setText("PUSTAKAWAN");
         sidepanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 130, 30));
 
-        bg.add(sidepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 710));
+        panel_menu_utama.add(sidepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 710));
 
         banner.setBackground(new java.awt.Color(205, 17, 59));
 
@@ -419,7 +592,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        bg.add(banner, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 930, 70));
+        panel_menu_utama.add(banner, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 930, 70));
 
         header.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -434,7 +607,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 930, 30));
+        panel_menu_utama.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 930, 30));
 
         footer.setBackground(new java.awt.Color(255, 169, 0));
 
@@ -454,7 +627,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        bg.add(footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 680, 930, 30));
+        panel_menu_utama.add(footer, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 680, 930, 30));
 
         panel_input_buku.setBackground(new java.awt.Color(250, 250, 250));
         panel_input_buku.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -611,7 +784,7 @@ public class MenuUtama extends javax.swing.JFrame {
                     .addComponent(f_penerbit, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(f_tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(btn_p_reg_admin2)
@@ -687,7 +860,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         panel_input_buku.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 50));
 
-        bg.add(panel_input_buku, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
+        panel_menu_utama.add(panel_input_buku, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
 
         panel_reg_admin.setBackground(new java.awt.Color(250, 250, 250));
         panel_reg_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -824,7 +997,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         panel_reg_admin.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 50));
 
-        bg.add(panel_reg_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
+        panel_menu_utama.add(panel_reg_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
 
         panel_reg_anggota.setBackground(new java.awt.Color(250, 250, 250));
         panel_reg_anggota.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1008,17 +1181,27 @@ public class MenuUtama extends javax.swing.JFrame {
 
         panel_reg_anggota.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 50));
 
-        bg.add(panel_reg_anggota, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
+        panel_menu_utama.add(panel_reg_anggota, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel_menu_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
+            .addComponent(panel_menu_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1035,6 +1218,8 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btn_side_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_logoutActionPerformed
         // TODO add your handling code here:
+        panel_login.setVisible(true);
+        panel_menu_utama.setVisible(false);
     }//GEN-LAST:event_btn_side_logoutActionPerformed
 
     private void btn_side_reg_anggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_reg_anggotaActionPerformed
@@ -1140,6 +1325,19 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        // TODO add your handling code here:
+        panel_login.setVisible(false);
+        panel_menu_utama.setVisible(true);
+        panel_input_buku.setVisible(false);
+        panel_reg_admin.setVisible(false);
+        panel_reg_anggota.setVisible(false);
+    }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void f_login_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_login_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_f_login_usernameActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1177,10 +1375,12 @@ public class MenuUtama extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel banner;
-    private javax.swing.JPanel bg;
+    private javax.swing.JPanel banner_login;
+    private javax.swing.JPanel banner_login1;
     private javax.swing.JButton btn_exit_panel_input;
     private javax.swing.JButton btn_exit_panel_reg_admin;
     private javax.swing.JButton btn_exit_panel_register;
+    private javax.swing.JButton btn_login;
     private javax.swing.JButton btn_p_del_admin;
     private javax.swing.JButton btn_p_del_admin1;
     private javax.swing.JButton btn_p_del_admin2;
@@ -1198,6 +1398,8 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btngroup_gender;
     private javax.swing.ButtonGroup btngroup_kategori;
     private javax.swing.JTextField f_judul;
+    private javax.swing.JPasswordField f_login_password;
+    private javax.swing.JTextField f_login_username;
     private javax.swing.JTextField f_nama1;
     private javax.swing.JTextField f_nama2;
     private javax.swing.JPasswordField f_password1;
@@ -1219,9 +1421,13 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -1239,7 +1445,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1248,6 +1457,9 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1259,6 +1471,8 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel panel_input_buku;
+    private javax.swing.JPanel panel_login;
+    private javax.swing.JPanel panel_menu_utama;
     private javax.swing.JPanel panel_reg_admin;
     private javax.swing.JPanel panel_reg_anggota;
     private javax.swing.JRadioButton rbtn_female;
