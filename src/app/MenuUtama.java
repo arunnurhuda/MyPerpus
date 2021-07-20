@@ -16,6 +16,10 @@ public class MenuUtama extends javax.swing.JFrame {
      */
     public MenuUtama() {
         initComponents();
+        panel_reg_anggota.setVisible(false);
+        panel_reg_admin.setVisible(false);
+        sidepanel.setVisible(true);
+        
     }
 
     /**
@@ -27,6 +31,7 @@ public class MenuUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngroup_gender = new javax.swing.ButtonGroup();
         bg = new javax.swing.JPanel();
         sidepanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -53,25 +58,36 @@ public class MenuUtama extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         panel_reg_anggota = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        f_nama = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
-        f_username = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        f_password = new javax.swing.JPasswordField();
         btn_exit_panel_register = new javax.swing.JButton();
-        btn_p_reg_anggota = new javax.swing.JButton();
-        panel_reg_admin = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        f_username2 = new javax.swing.JTextField();
+        f_nama2 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        btn_p_reg_admin1 = new javax.swing.JButton();
+        btn_p_del_admin1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        f_username3 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        f_username4 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        panel_reg_admin = new javax.swing.JPanel();
+        btn_exit_panel_reg_admin = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        f_username1 = new javax.swing.JTextField();
+        f_password1 = new javax.swing.JPasswordField();
         f_nama1 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        f_username1 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        f_password1 = new javax.swing.JPasswordField();
-        btn_exit_panel_reg_admin = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
         btn_p_reg_admin = new javax.swing.JButton();
+        btn_p_del_admin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -415,20 +431,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 panel_reg_anggotaComponentHidden(evt);
             }
         });
-
-        jLabel2.setText("REGISTER ANGGOTA PERPUSTAKAAN ");
-
-        jLabel24.setText("Nama Lengkap");
-
-        jLabel25.setText("Username");
-
-        jLabel26.setText("Password");
-
-        f_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_passwordActionPerformed(evt);
-            }
-        });
+        panel_reg_anggota.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_exit_panel_register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_close_window_30px.png"))); // NOI18N
         btn_exit_panel_register.setContentAreaFilled(false);
@@ -437,65 +440,149 @@ public class MenuUtama extends javax.swing.JFrame {
                 btn_exit_panel_registerActionPerformed(evt);
             }
         });
+        panel_reg_anggota.add(btn_exit_panel_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(898, 0, 32, 30));
 
-        btn_p_reg_anggota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
-        btn_p_reg_anggota.setText("Daftar");
-        btn_p_reg_anggota.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_classroom_30px.png"))); // NOI18N
+        jLabel30.setText("Kelas");
 
-        javax.swing.GroupLayout panel_reg_anggotaLayout = new javax.swing.GroupLayout(panel_reg_anggota);
-        panel_reg_anggota.setLayout(panel_reg_anggotaLayout);
-        panel_reg_anggotaLayout.setHorizontalGroup(
-            panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_reg_anggotaLayout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_exit_panel_register, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panel_reg_anggotaLayout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panel_reg_anggotaLayout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addGap(98, 98, 98)
-                        .addComponent(f_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_anggotaLayout.createSequentialGroup()
-                        .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel26))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(f_username, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(f_password))))
-                .addContainerGap(363, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_anggotaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_p_reg_anggota)
-                .addGap(396, 396, 396))
-        );
-        panel_reg_anggotaLayout.setVerticalGroup(
-            panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_reg_anggotaLayout.createSequentialGroup()
-                .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_reg_anggotaLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel2))
-                    .addComponent(btn_exit_panel_register, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_registration_30px.png"))); // NOI18N
+        jLabel32.setText("Nama Lengkap");
+
+        btn_p_reg_admin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
+        btn_p_reg_admin1.setText("Tambah Anggota");
+        btn_p_reg_admin1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_p_reg_admin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_p_reg_admin1ActionPerformed(evt);
+            }
+        });
+
+        btn_p_del_admin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_delete_30px.png"))); // NOI18N
+        btn_p_del_admin1.setText("Hapus Anggota");
+        btn_p_del_admin1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_p_del_admin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_p_del_admin1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("*untuk hapus akun isi bagian username saja");
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_identification_documents_30px.png"))); // NOI18N
+        jLabel31.setText("NIS");
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_android_30px.png"))); // NOI18N
+        jLabel33.setText("No. HP");
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_gender_30px.png"))); // NOI18N
+        jLabel34.setText("Jenis Kelamin");
+
+        btngroup_gender.add(jRadioButton3);
+        jRadioButton3.setText("Laki-laki");
+
+        btngroup_gender.add(jRadioButton4);
+        jRadioButton4.setText("Perempuan");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jRadioButton3)
                 .addGap(46, 46, 46)
-                .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(f_nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addGap(18, 18, 18)
-                .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(f_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addGap(18, 18, 18)
-                .addGroup(panel_reg_anggotaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(f_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
-                .addComponent(btn_p_reg_anggota)
-                .addGap(136, 136, 136))
+                .addComponent(jRadioButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton4))
+                .addGap(36, 36, 36))
+        );
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(btn_p_reg_admin1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_p_del_admin1)
+                        .addGap(60, 60, 60))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(f_username4, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(f_username3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(f_username2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addComponent(f_nama2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addGap(42, 42, 42)
+                                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap(70, Short.MAX_VALUE))))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(f_nama2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(f_username2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_username3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_username4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel34))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_p_reg_admin1)
+                    .addComponent(btn_p_del_admin1))
+                .addGap(16, 16, 16)
+                .addComponent(jLabel4))
+        );
+
+        panel_reg_anggota.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 640, 400));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("TAMBAH ANGGOTA PERPUSTAKAAN");
+        panel_reg_anggota.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
         bg.add(panel_reg_anggota, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
 
@@ -506,20 +593,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 panel_reg_adminComponentHidden(evt);
             }
         });
-
-        jLabel3.setText("TAMBAH ADMIN PERPUSTAKAAN (PUSTAKAWAN)");
-
-        jLabel27.setText("Nama Lengkap");
-
-        jLabel28.setText("Username");
-
-        jLabel29.setText("Password");
-
-        f_password1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                f_password1ActionPerformed(evt);
-            }
-        });
+        panel_reg_admin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_exit_panel_reg_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_close_window_30px.png"))); // NOI18N
         btn_exit_panel_reg_admin.setContentAreaFilled(false);
@@ -528,6 +602,22 @@ public class MenuUtama extends javax.swing.JFrame {
                 btn_exit_panel_reg_adminActionPerformed(evt);
             }
         });
+        panel_reg_admin.add(btn_exit_panel_reg_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(898, 0, 32, 30));
+
+        f_password1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                f_password1ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_registration_30px_1.png"))); // NOI18N
+        jLabel28.setText("Username");
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_password_30px.png"))); // NOI18N
+        jLabel29.setText("Password");
+
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_create_30px.png"))); // NOI18N
+        jLabel27.setText("Nama Lengkap");
 
         btn_p_reg_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
         btn_p_reg_admin.setText("Tambah Admin");
@@ -538,58 +628,72 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panel_reg_adminLayout = new javax.swing.GroupLayout(panel_reg_admin);
-        panel_reg_admin.setLayout(panel_reg_adminLayout);
-        panel_reg_adminLayout.setHorizontalGroup(
-            panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_adminLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_exit_panel_reg_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panel_reg_adminLayout.createSequentialGroup()
-                .addGroup(panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_reg_adminLayout.createSequentialGroup()
-                        .addGap(277, 277, 277)
-                        .addGroup(panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_reg_adminLayout.createSequentialGroup()
+        btn_p_del_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_delete_30px.png"))); // NOI18N
+        btn_p_del_admin.setText("Hapus Admin");
+        btn_p_del_admin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_p_del_admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_p_del_adminActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("*untuk hapus akun isi bagian username saja");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(f_password1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_reg_adminLayout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(f_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_reg_adminLayout.createSequentialGroup()
+                                .addComponent(f_password1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(f_username1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3)))
-                    .addGroup(panel_reg_adminLayout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(btn_p_reg_admin)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                                .addComponent(f_username1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(f_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(37, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_p_reg_admin)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_p_del_admin)
+                        .addGap(60, 60, 60))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        panel_reg_adminLayout.setVerticalGroup(
-            panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_reg_adminLayout.createSequentialGroup()
-                .addComponent(btn_exit_panel_reg_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jLabel3)
-                .addGap(34, 34, 34)
-                .addGroup(panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(f_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(f_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(f_username1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(f_username1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panel_reg_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(f_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addComponent(btn_p_reg_admin)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_p_reg_admin)
+                    .addComponent(btn_p_del_admin))
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1))
         );
+
+        panel_reg_admin.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 560, -1));
 
         bg.add(panel_reg_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 930, 580));
 
@@ -611,10 +715,6 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panel_reg_anggotaComponentHidden
 
-    private void f_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_f_passwordActionPerformed
-
     private void btn_exit_panel_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_registerActionPerformed
         // TODO add your handling code here:
         panel_reg_anggota.setVisible(false);
@@ -622,8 +722,6 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btn_side_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_logoutActionPerformed
         // TODO add your handling code here:
-        panel_reg_admin.setVisible(true);
-        panel_reg_anggota.setVisible(false);
     }//GEN-LAST:event_btn_side_logoutActionPerformed
 
     private void btn_side_reg_anggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_reg_anggotaActionPerformed
@@ -651,6 +749,8 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btn_side_reg_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_reg_adminActionPerformed
         // TODO add your handling code here:
+        panel_reg_admin.setVisible(true);
+        panel_reg_anggota.setVisible(false);
     }//GEN-LAST:event_btn_side_reg_adminActionPerformed
 
     private void btn_side_inputbukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_inputbukuActionPerformed
@@ -672,6 +772,18 @@ public class MenuUtama extends javax.swing.JFrame {
     private void btn_side_cetak1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_cetak1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_side_cetak1ActionPerformed
+
+    private void btn_p_del_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_p_del_adminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_p_del_adminActionPerformed
+
+    private void btn_p_reg_admin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_p_reg_admin1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_p_reg_admin1ActionPerformed
+
+    private void btn_p_del_admin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_p_del_admin1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_p_del_admin1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -712,8 +824,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JButton btn_exit_panel_reg_admin;
     private javax.swing.JButton btn_exit_panel_register;
+    private javax.swing.JButton btn_p_del_admin;
+    private javax.swing.JButton btn_p_del_admin1;
     private javax.swing.JButton btn_p_reg_admin;
-    private javax.swing.JButton btn_p_reg_anggota;
+    private javax.swing.JButton btn_p_reg_admin1;
     private javax.swing.JButton btn_side_caribuku;
     private javax.swing.JButton btn_side_cetak1;
     private javax.swing.JButton btn_side_inputbuku;
@@ -722,27 +836,35 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JButton btn_side_pinjam;
     private javax.swing.JButton btn_side_reg_admin;
     private javax.swing.JButton btn_side_reg_anggota;
-    private javax.swing.JTextField f_nama;
+    private javax.swing.ButtonGroup btngroup_gender;
     private javax.swing.JTextField f_nama1;
-    private javax.swing.JPasswordField f_password;
+    private javax.swing.JTextField f_nama2;
     private javax.swing.JPasswordField f_password1;
-    private javax.swing.JTextField f_username;
     private javax.swing.JTextField f_username1;
+    private javax.swing.JTextField f_username2;
+    private javax.swing.JTextField f_username3;
+    private javax.swing.JTextField f_username4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -751,6 +873,8 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JPanel panel_reg_admin;
     private javax.swing.JPanel panel_reg_anggota;
     private javax.swing.JPanel sidepanel;
