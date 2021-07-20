@@ -5,21 +5,67 @@
  */
 package app;
 
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 /**
  *
  * @author Arun Nurhuda
  */
 public class MenuUtama extends javax.swing.JFrame {
-
+    Connection con =null;
+    Statement st = null;
     /**
      * Creates new form MenuUtama
      */
-    public MenuUtama() {
+    public MenuUtama(java.awt.Frame parent, boolean modal) {
         initComponents();
         panel_login.setVisible(true);
         panel_menu_utama.setVisible(false);
         
+        try {
+             Class.forName("com.mysql.cj.jdbc.Driver");
+             con=DriverManager.getConnection("jdbc:mysql://localhost/db_perpus","root","");
+             st=con.createStatement();
+             //JOptionPane.showMessageDialog(null, "Alhamdulillah Berhasil Koneksi ");
+        }
+        catch(Exception ex){
+                JOptionPane.showMessageDialog(null,"Gagal terkoneksi Karena " + ex);
+        }
+        
     }
+    
+    private void CekLogin(){
+    try{
+        if(f_login_username.getText().equals("") ||
+            f_login_password.getPassword().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Data Tidak Boleh Kosong", "Pesan", JOptionPane.ERROR_MESSAGE);
+            f_login_username.requestFocus();
+            //HapusLayar();
+        }else{
+            st = con.createStatement();
+            String sql = ("SELECT * FROM t_login WHERE username ='"+f_login_username.getText()+"' AND password ='"+String.valueOf(f_login_password.getPassword())+"'");
+            ResultSet rs = st.executeQuery(sql);
+            if(rs.next()){
+                //this.dispose();
+                panel_login.setVisible(false);
+                panel_menu_utama.setVisible(true);
+                panel_input_buku.setVisible(false);
+                panel_reg_admin.setVisible(false);
+                 panel_reg_anggota.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "User Name dan Password Salah\nAtau Akun Belum Terdaftar", "Pesan",
+                JOptionPane.ERROR_MESSAGE);
+                //HapusLayar();
+            } }
+            }catch(Exception e){
+            e.printStackTrace();
+        }
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1327,11 +1373,12 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-        panel_login.setVisible(false);
-        panel_menu_utama.setVisible(true);
-        panel_input_buku.setVisible(false);
-        panel_reg_admin.setVisible(false);
-        panel_reg_anggota.setVisible(false);
+        CekLogin();
+        //panel_login.setVisible(false);
+        //panel_menu_utama.setVisible(true);
+        //panel_input_buku.setVisible(false);
+        //panel_reg_admin.setVisible(false);
+        //panel_reg_anggota.setVisible(false);
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void f_login_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_login_usernameActionPerformed
@@ -1368,7 +1415,7 @@ public class MenuUtama extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuUtama().setVisible(true);
+                new MenuUtama(null,false).setVisible(true);
             }
         });
     }
