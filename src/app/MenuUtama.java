@@ -11,7 +11,10 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +23,7 @@ import java.sql.Statement;
 public class MenuUtama extends javax.swing.JFrame {
     Connection con =null;
     Statement st = null;
+    String ambil_id = null;
     /**
      * Creates new form MenuUtama
      */
@@ -561,7 +565,7 @@ public class MenuUtama extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addComponent(btn_side_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -570,7 +574,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGap(0, 2, Short.MAX_VALUE))
         );
 
-        sidepanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, -1, 51));
+        sidepanel.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 300, 51));
 
         jPanel9.setBackground(new java.awt.Color(82, 82, 180));
 
@@ -1368,6 +1372,48 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btn_p_reg_admin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_p_reg_admin2ActionPerformed
         // TODO add your handling code here:
+        
+            try {
+            if (f_judul.getText().equals("") ||
+            f_penulis.getText().equals("") ||
+            f_penerbit.getText().equals("")||
+            f_tahun.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Data Tidak Boleh Kosong", "Pesan", JOptionPane.ERROR_MESSAGE);
+            //hapuslayar();
+            }else{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost/db_perpus","root","");
+                 // JOptionPane.showMessageDialog(null, "Connection Berhasil");
+                    st=con.createStatement();
+                    //String simpan = "INSERT INTO buku_master ('judul','penulis','penerbit','tahun','kategori') VALUES ('"+f_judul.getText()+"','"+f_penulis.getText()+"','"+f_penerbit.getText()+"','"+f_tahun.getText()+"','"+f_tahun.getText()+"')";
+                    // Test INSERT 
+                    //String simpan = "INSERT INTO 'buku_master'('id','judul', 'penulis', 'penerbit', 'tahun', 'kategori') VALUES ('12','arun','arun','arun','2020','arun')";
+                    String simpan = "INSERT INTO buku_master (judul,penulis,penerbit,tahun,kategori) "
+                            +"VALUES('"+f_judul.getText()+"','"+f_penulis.getText()+"','"+f_penerbit.getText()+"','"+f_tahun.getText()+"','"+f_tahun.getText()+"')";
+                    st=con.createStatement();
+                    int SA = st.executeUpdate(simpan);
+                    //String ambil = ("SELECT id FROM buku_master WHERE judul ='"+f_judul.getText()+"'");
+                    //st=con.createStatement();
+                    //ResultSet rs = st.executeQuery(ambil);
+                    //while ( rs.next() ) {
+                    //    String ambil_id = rs.getString("");
+                    //    System.out.println(ambil_id);
+                    //};
+                    JOptionPane.showMessageDialog(null, "Buku Dengan Judul "+ f_judul.getText() +" Berhasil Disimpan Dengan ID BUKU = "+ambil_id);
+                    //this.setVisible(false);
+                    //new FormLogin(null, true).setVisible(true);
+                 }
+            } 
+            catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuUtama.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this,"Terjadi Error / Data Tidak Benar", "Pesan",JOptionPane.WARNING_MESSAGE);
+                 //hapuslayar();
+            } 
+        
+        
+ 
     }//GEN-LAST:event_btn_p_reg_admin2ActionPerformed
 
     private void btn_p_del_admin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_p_del_admin2ActionPerformed
