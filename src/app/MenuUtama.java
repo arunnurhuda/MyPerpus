@@ -47,8 +47,8 @@ public class MenuUtama extends javax.swing.JFrame {
         datatblpinjam();
         comboidanggota();
         comboidbuku();
-        originalTableModel = (Vector) ((DefaultTableModel) tblbuku1.getModel()).getDataVector().clone();
-        originalTableModel1 = (Vector) ((DefaultTableModel) tblpinjam1.getModel()).getDataVector().clone();
+        originalTableModel = (Vector)((DefaultTableModel) tblbuku1.getModel()).getDataVector().clone();
+        originalTableModel1 = (Vector)((DefaultTableModel) tblpinjam1.getModel()).getDataVector().clone();
 
     }
     
@@ -106,12 +106,15 @@ public class MenuUtama extends javax.swing.JFrame {
         f_judul2.setText("");
         tgl3.setText("");
         f_nama1.setText("");
+        f_nama2.setText("");
         f_penerbit1.setText("");
         f_penerbit2.setText("");
         cbpinjam1.setSelectedItem("==pilih ID buku==");
         cbpinjam2.setSelectedItem("==pilih ID Anggota==");
         f_cari.setText("");
+        f_cari1.setText("");
         tgl5.setText("");
+        denda.setText("");
     }
     
     
@@ -2661,6 +2664,36 @@ public class MenuUtama extends javax.swing.JFrame {
         if(denda.getText().equals("")){
             JOptionPane.showMessageDialog(rootPane, "Silakan Cek Denda Terlebih Dahulu", "Pesan", JOptionPane.ERROR_MESSAGE);
             cekdenda.requestFocus();
+        }else{
+            String sql = "insert into pengembalian value (?,?,?,?,?,?,?,?,?)";
+            String sql1 ="delete from peminjaman where idbuku='"+f_idbuku2.getText()+"'";
+            String tampilan = "dd-MM-yyyy";
+            SimpleDateFormat fm =new SimpleDateFormat(tampilan);
+            String tanggal1 = String.valueOf(fm.format(tgl4.getDate()));
+            try {
+                PreparedStatement stat = con.prepareStatement(sql);
+                stat.setString(1,null);
+                stat.setString(2,f_idbuku2.getText());
+                stat.setString(3,f_judul2.getText());
+                stat.setString(4,f_penerbit2.getText());
+                stat.setString(5,f_idanggota2.getText());
+                stat.setString(6,f_nama2.getText());
+                stat.setString(7,tgl5.getText());
+                stat.setString(8,tanggal1);
+                stat.setString(9,denda.getText());
+                stat.executeUpdate();
+                PreparedStatement stat2 = con.prepareStatement(sql1);
+                stat2.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+                clear();
+                cekdenda.requestFocus();
+                datatblpinjam();
+                
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this,"Terjadi Error / Data Tidak Benar", "Pesan",JOptionPane.WARNING_MESSAGE);
+                clear();
+             }
+        }  
     }//GEN-LAST:event_simpanbalikActionPerformed
 
     private void f_cari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_f_cari1ActionPerformed
