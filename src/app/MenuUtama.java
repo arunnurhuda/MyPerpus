@@ -6,6 +6,8 @@
 package app;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.io.File;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
@@ -17,10 +19,19 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -33,6 +44,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private DefaultTableModel tabmode1;
     private DefaultTableModel tabmode2;
     private DefaultTableModel tabmode3;
+    private DefaultTableModel tabmode4;
     Vector originalTableModel,originalTableModel1;
     /**
      * Creates new form MenuUtama
@@ -45,6 +57,7 @@ public class MenuUtama extends javax.swing.JFrame {
         datatblanggota();  
         datatblbuku();
         datatblpinjam();
+        datatblbukurusak();
         comboidanggota();
         comboidbuku();
         originalTableModel = (Vector)((DefaultTableModel) tblbuku1.getModel()).getDataVector().clone();
@@ -82,6 +95,8 @@ public class MenuUtama extends javax.swing.JFrame {
         panel_pinjam.setVisible(false);
         panel_pengembalian.setVisible(false);
         panel_caribuku.setVisible(false);
+        panel_bukurusak.setVisible(false);
+        panel_laporan.setVisible(false);
     }
     
     protected void clear(){
@@ -115,6 +130,15 @@ public class MenuUtama extends javax.swing.JFrame {
         f_cari1.setText("");
         tgl5.setText("");
         denda.setText("");
+        f_idbuku3.setText("");
+        f_judul3.setText("");
+        f_penulis3.setText("");
+        f_penerbit3.setText("");
+        f_tahun3.setText("");
+        f_kategori3.setText("");
+        detail3.setText("");
+        
+        
     }
     
     
@@ -162,6 +186,34 @@ public class MenuUtama extends javax.swing.JFrame {
                     String f = hasil.getString("kategori");
                     String[] data={a,b,c,d,e,f};
                 tabmode2.addRow(data); 
+                
+            }
+            }catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Gagal Melihat Tabel"+e);
+            }
+        }
+        
+        
+        
+        
+        protected void datatblbukurusak(){
+            Object[] Baris ={"ID","Judul","Penulis","Penerbit","Tahun","Kategori","Detail"};
+            tabmode4 = new DefaultTableModel(null, Baris);
+            tblbuku3.setModel(tabmode4);
+            String sql = "select * from rusak";
+            try{
+                Statement stat = con.createStatement();
+                ResultSet hasil = stat.executeQuery(sql);
+                while(hasil.next()){
+                    String a = hasil.getString("id");
+                    String b = hasil.getString("judul");
+                    String c = hasil.getString("penulis");
+                    String d = hasil.getString("penerbit");
+                    String e = hasil.getString("tahun");
+                    String f = hasil.getString("kategori");
+                    String h = hasil.getString("detail");
+                    String[] data={a,b,c,d,e,f,h};
+                tabmode4.addRow(data); 
                 
             }
             }catch (SQLException e){
@@ -301,6 +353,40 @@ public class MenuUtama extends javax.swing.JFrame {
 
         btngroup_gender = new javax.swing.ButtonGroup();
         btngroup_kategori = new javax.swing.ButtonGroup();
+        panel_laporan = new javax.swing.JPanel();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        btn_exit_panel_input4 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        panel_bukurusak = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        f_penulis3 = new javax.swing.JTextField();
+        f_judul3 = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        simpanrusak = new javax.swing.JButton();
+        f_penerbit3 = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        f_tahun3 = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        f_idbuku3 = new javax.swing.JTextField();
+        editrusak = new javax.swing.JButton();
+        hapusrusak = new javax.swing.JButton();
+        f_kategori3 = new javax.swing.JTextField();
+        cari3 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        detail3 = new javax.swing.JTextArea();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        btn_exit_panel_input3 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tblbuku3 = new javax.swing.JTable();
         panel_pengembalian = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         f_judul2 = new javax.swing.JTextField();
@@ -450,11 +536,13 @@ public class MenuUtama extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         btn_side_logout = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        btn_side_kembali = new javax.swing.JButton();
-        jPanel11 = new javax.swing.JPanel();
         btn_side_cetak = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        btn_side_rusak = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        btn_side_kembali = new javax.swing.JButton();
         banner = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
@@ -463,6 +551,305 @@ public class MenuUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_laporan.setBackground(new java.awt.Color(250, 250, 250));
+        panel_laporan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel_laporan.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                panel_laporanComponentHidden(evt);
+            }
+        });
+        panel_laporan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel26.setBackground(new java.awt.Color(255, 169, 0));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("MENU CETAK LAPORAN");
+
+        btn_exit_panel_input4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_close_window_30px.png"))); // NOI18N
+        btn_exit_panel_input4.setContentAreaFilled(false);
+        btn_exit_panel_input4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exit_panel_input4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_exit_panel_input4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_exit_panel_input4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panel_laporan.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 50));
+
+        jButton1.setText("Print Data Anggota");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panel_laporan.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 250, 40));
+
+        jButton2.setText("Print Data Peminjaman Buku");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        panel_laporan.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 250, 40));
+
+        jButton4.setText("Print Data Buku Rusak");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        panel_laporan.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 250, 40));
+
+        jButton5.setText("Print Data Pengembalian Buku");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        panel_laporan.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 250, 40));
+
+        jButton6.setText("Print Koleksi Buku");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        panel_laporan.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 250, 40));
+
+        getContentPane().add(panel_laporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, 540));
+
+        panel_bukurusak.setBackground(new java.awt.Color(250, 250, 250));
+        panel_bukurusak.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panel_bukurusak.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                panel_bukurusakComponentHidden(evt);
+            }
+        });
+        panel_bukurusak.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        f_penulis3.setEditable(false);
+
+        f_judul3.setEditable(false);
+
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_and_pencil_30px.png"))); // NOI18N
+        jLabel41.setText("Penulis");
+
+        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_30px.png"))); // NOI18N
+        jLabel58.setText("Judul Buku");
+
+        simpanrusak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
+        simpanrusak.setText("Simpan Data");
+        simpanrusak.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        simpanrusak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simpanrusakActionPerformed(evt);
+            }
+        });
+
+        f_penerbit3.setEditable(false);
+
+        jLabel59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_stack_30px.png"))); // NOI18N
+        jLabel59.setText("Penerbit");
+
+        f_tahun3.setEditable(false);
+
+        jLabel60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel60.setText("Tahun Terbit");
+
+        jLabel61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_course_30px.png"))); // NOI18N
+        jLabel61.setText("Kategori Buku");
+
+        jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel62.setText("ID Buku");
+
+        editrusak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_edit_30px.png"))); // NOI18N
+        editrusak.setText("Edit");
+        editrusak.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        editrusak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editrusakActionPerformed(evt);
+            }
+        });
+
+        hapusrusak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_delete_bin_30px.png"))); // NOI18N
+        hapusrusak.setText("Hapus");
+        hapusrusak.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        hapusrusak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusrusakActionPerformed(evt);
+            }
+        });
+
+        f_kategori3.setEditable(false);
+
+        cari3.setText("Cari");
+        cari3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cari3ActionPerformed(evt);
+            }
+        });
+
+        detail3.setColumns(20);
+        detail3.setFont(new java.awt.Font("Lucida Sans", 0, 13)); // NOI18N
+        detail3.setRows(5);
+        detail3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detail Rusak / Hilang", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+        jScrollPane8.setViewportView(detail3);
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(simpanrusak)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editrusak)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hapusrusak)
+                        .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane8)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel22Layout.createSequentialGroup()
+                                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel58)
+                                    .addComponent(jLabel41)
+                                    .addComponent(jLabel59)
+                                    .addComponent(jLabel60)
+                                    .addComponent(jLabel61))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(f_judul3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                    .addComponent(f_penulis3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                    .addComponent(f_penerbit3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                    .addComponent(f_tahun3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(f_kategori3)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                                        .addComponent(f_idbuku3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cari3)))))
+                        .addGap(23, 23, 23))))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_idbuku3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel62)
+                    .addComponent(cari3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel58)
+                    .addComponent(f_judul3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(f_penulis3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_penerbit3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel59))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(f_tahun3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel61)
+                    .addComponent(f_kategori3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simpanrusak)
+                    .addComponent(editrusak)
+                    .addComponent(hapusrusak))
+                .addGap(34, 34, 34))
+        );
+
+        panel_bukurusak.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 410, 460));
+
+        jPanel25.setBackground(new java.awt.Color(255, 169, 0));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("RIWAYAT BUKU RUSAK / HILANG");
+
+        btn_exit_panel_input3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_close_window_30px.png"))); // NOI18N
+        btn_exit_panel_input3.setContentAreaFilled(false);
+        btn_exit_panel_input3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exit_panel_input3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_exit_panel_input3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_exit_panel_input3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panel_bukurusak.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 50));
+
+        tblbuku3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblbuku3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblbuku3MouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(tblbuku3);
+
+        panel_bukurusak.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 490, 460));
+
+        getContentPane().add(panel_bukurusak, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, 540));
 
         panel_pengembalian.setBackground(new java.awt.Color(250, 250, 250));
         panel_pengembalian.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -478,7 +865,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_30px.png"))); // NOI18N
         jLabel44.setText("Judul Buku");
 
-        cekdenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
+        cekdenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_paper_money_30px.png"))); // NOI18N
         cekdenda.setText("Cek Denda");
         cekdenda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cekdenda.addActionListener(new java.awt.event.ActionListener() {
@@ -492,13 +879,13 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_stack_30px.png"))); // NOI18N
         jLabel45.setText("Penerbit");
 
-        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_informatics_book_30px.png"))); // NOI18N
         jLabel51.setText("ID Buku");
 
-        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_identification_documents_30px.png"))); // NOI18N
         jLabel52.setText("ID Anggota");
 
-        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_identification_documents_30px.png"))); // NOI18N
         jLabel53.setText("Nama");
 
         tgl3.setEditable(false);
@@ -528,6 +915,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         f_nama2.setEditable(false);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_paper_money_30px.png"))); // NOI18N
         jLabel2.setText("Denda");
 
         simpanbalik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
@@ -778,8 +1166,9 @@ public class MenuUtama extends javax.swing.JFrame {
         jScrollPane6.setViewportView(tblbuku1);
 
         panel_caribuku.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 127, 910, 400));
-        panel_caribuku.add(f_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, -1));
+        panel_caribuku.add(f_cari, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 210, 40));
 
+        btncari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_search_30px.png"))); // NOI18N
         btncari.setText("CARI");
         btncari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -818,10 +1207,10 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_stack_30px.png"))); // NOI18N
         jLabel43.setText("Penerbit");
 
-        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_informatics_book_30px.png"))); // NOI18N
         jLabel46.setText("ID Buku");
 
-        editpinjam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
+        editpinjam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_edit_30px.png"))); // NOI18N
         editpinjam.setText("Edit");
         editpinjam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         editpinjam.addActionListener(new java.awt.event.ActionListener() {
@@ -830,7 +1219,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        hapuspinjam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_save_30px.png"))); // NOI18N
+        hapuspinjam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_delete_30px.png"))); // NOI18N
         hapuspinjam.setText("Hapus");
         hapuspinjam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hapuspinjam.addActionListener(new java.awt.event.ActionListener() {
@@ -839,10 +1228,10 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
-        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_identification_documents_30px.png"))); // NOI18N
         jLabel47.setText("ID Anggota");
 
-        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_december_30px.png"))); // NOI18N
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_identification_documents_30px.png"))); // NOI18N
         jLabel48.setText("Nama");
 
         f_nama1.setEditable(false);
@@ -878,7 +1267,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         tgl2.setDateFormatString("d MMMM yyyy");
 
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_book_30px.png"))); // NOI18N
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_counter_30px.png"))); // NOI18N
         jLabel56.setText("No");
 
         f_no1.setEditable(false);
@@ -1913,38 +2302,6 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(82, 82, 180));
 
-        btn_side_kembali.setBackground(new java.awt.Color(82, 82, 180));
-        btn_side_kembali.setForeground(new java.awt.Color(240, 240, 240));
-        btn_side_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_return_book_30px.png"))); // NOI18N
-        btn_side_kembali.setText("Pengembalian");
-        btn_side_kembali.setToolTipText("");
-        btn_side_kembali.setBorderPainted(false);
-        btn_side_kembali.setContentAreaFilled(false);
-        btn_side_kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btn_side_kembali.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btn_side_kembali.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_side_kembaliActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(btn_side_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_side_kembali, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        sidepanel.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, 50));
-
-        jPanel11.setBackground(new java.awt.Color(82, 50, 150));
-
         btn_side_cetak.setBackground(new java.awt.Color(82, 82, 180));
         btn_side_cetak.setForeground(new java.awt.Color(240, 240, 240));
         btn_side_cetak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_print_30px.png"))); // NOI18N
@@ -1960,17 +2317,51 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(btn_side_cetak, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(btn_side_cetak, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        sidepanel.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, -1, 50));
+
+        jPanel11.setBackground(new java.awt.Color(82, 50, 150));
+
+        btn_side_rusak.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_rusak.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_rusak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_return_book_30px.png"))); // NOI18N
+        btn_side_rusak.setText("Rusak / Hilang");
+        btn_side_rusak.setToolTipText("");
+        btn_side_rusak.setBorderPainted(false);
+        btn_side_rusak.setContentAreaFilled(false);
+        btn_side_rusak.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_rusak.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_rusak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_rusakActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(btn_side_cetak, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_side_rusak, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 20, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_side_cetak, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+            .addComponent(btn_side_rusak, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
         );
 
         sidepanel.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, -1, 51));
@@ -1982,6 +2373,40 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("PUSTAKAWAN");
         sidepanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 130, 30));
+
+        jPanel21.setBackground(new java.awt.Color(82, 82, 180));
+
+        btn_side_kembali.setBackground(new java.awt.Color(82, 82, 180));
+        btn_side_kembali.setForeground(new java.awt.Color(240, 240, 240));
+        btn_side_kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/app/image/icons8_return_book_30px.png"))); // NOI18N
+        btn_side_kembali.setText("Pengembalian");
+        btn_side_kembali.setToolTipText("");
+        btn_side_kembali.setBorderPainted(false);
+        btn_side_kembali.setContentAreaFilled(false);
+        btn_side_kembali.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_side_kembali.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_side_kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_side_kembaliActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addComponent(btn_side_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btn_side_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        sidepanel.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, 50));
 
         menukosong.add(sidepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 680));
 
@@ -2044,8 +2469,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_panel_reg_anggotaComponentHidden
 
     private void btn_exit_panel_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_registerActionPerformed
-        // TODO add your handling code here:
-        panel_reg_anggota.setVisible(false);
+        menukosong();
     }//GEN-LAST:event_btn_exit_panel_registerActionPerformed
 
     private void btn_side_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_logoutActionPerformed
@@ -2060,8 +2484,6 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         menukosong();
         panel_reg_anggota.setVisible(true);
-        panel_reg_admin.setVisible(false);
-        panel_input_buku.setVisible(false);
         clear();
         datatblanggota();
     }//GEN-LAST:event_btn_side_reg_anggotaActionPerformed
@@ -2070,8 +2492,6 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         menukosong();
         panel_reg_admin.setVisible(true);
-        panel_reg_anggota.setVisible(false);
-        panel_input_buku.setVisible(false);
         datatbladmin();
         clear();
     }//GEN-LAST:event_btn_side_reg_adminActionPerformed
@@ -2080,8 +2500,6 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
         menukosong();
         panel_input_buku.setVisible(true);
-        panel_reg_admin.setVisible(false);
-        panel_reg_anggota.setVisible(false);
         datatblbuku();
         clear();
     }//GEN-LAST:event_btn_side_inputbukuActionPerformed
@@ -2114,7 +2532,9 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_side_kembaliActionPerformed
 
     private void btn_side_cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_cetakActionPerformed
-        // TODO add your handling code here:
+        menukosong();
+        panel_laporan.setVisible(true);
+
     }//GEN-LAST:event_btn_side_cetakActionPerformed
 
     private void tambahanggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahanggotaActionPerformed
@@ -2179,8 +2599,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_simpanbukuActionPerformed
 
     private void btn_exit_panel_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_inputActionPerformed
-        clear();
-        panel_input_buku.setVisible(false);
+        menukosong();
     }//GEN-LAST:event_btn_exit_panel_inputActionPerformed
 
     private void panel_input_bukuComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panel_input_bukuComponentHidden
@@ -2498,7 +2917,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btn_exit_panel_reg_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_reg_adminActionPerformed
         // TODO add your handling code here:
-        panel_reg_admin.setVisible(false);
+        menukosong();
     }//GEN-LAST:event_btn_exit_panel_reg_adminActionPerformed
 
     private void beditadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beditadminActionPerformed
@@ -2598,7 +3017,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_cekdendaActionPerformed
 
     private void btn_exit_panel_input2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_input2ActionPerformed
-        // TODO add your handling code here:
+        menukosong();
     }//GEN-LAST:event_btn_exit_panel_input2ActionPerformed
 
     private void tblpinjam1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpinjam1MouseClicked
@@ -2645,7 +3064,7 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_dendaActionPerformed
 
     private void btn_exit_panel_register1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_register1ActionPerformed
-        // TODO add your handling code here:
+        menukosong();
     }//GEN-LAST:event_btn_exit_panel_register1ActionPerformed
 
     private void tblbuku1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblbuku1MouseClicked
@@ -2703,6 +3122,220 @@ public class MenuUtama extends javax.swing.JFrame {
     private void btncaripinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncaripinjamActionPerformed
         searchTableContents1(f_cari1.getText());
     }//GEN-LAST:event_btncaripinjamActionPerformed
+
+    private void btn_side_rusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_side_rusakActionPerformed
+        menukosong();
+        panel_bukurusak.setVisible(true);
+        datatblbukurusak();
+        clear();
+    }//GEN-LAST:event_btn_side_rusakActionPerformed
+
+    private void simpanrusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanrusakActionPerformed
+        String sql = "insert into rusak value (?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement stat = con.prepareStatement(sql);
+            stat.setString (1, f_idbuku3.getText());
+            stat.setString (2, f_judul3.getText());
+            stat.setString (3, f_penulis3.getText());
+            stat.setString (4, f_penerbit3.getText());
+            stat.setString (5, f_tahun3.getText());
+            stat.setString (6, f_kategori3.getText());
+            stat.setString (7, detail3.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Data Buku Rusak Berhasil Di Simpan");
+            clear();
+            simpanrusak.requestFocus();
+            datatblbukurusak();        
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Di Simpan)"+e);
+            
+          }
+    }//GEN-LAST:event_simpanrusakActionPerformed
+
+    private void editrusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editrusakActionPerformed
+        int bar = tblbuku3.getSelectedRow();
+        String idbuku = tabmode4.getValueAt(bar, 0).toString();
+        try {
+            String sql = "update rusak set id=?, judul=?, penulis=?, penerbit=?, tahun=?, kategori=?, detail=? "
+                    +"where id='"+idbuku+"'";
+            PreparedStatement stat = con.prepareStatement(sql);
+            stat.setString (1, idbuku);
+            stat.setString (2, f_judul3.getText());
+            stat.setString (3, f_penulis3.getText());
+            stat.setString (4, f_penerbit3.getText());
+            stat.setString (5, f_tahun3.getText());
+            stat.setString (6, f_kategori3.getText());
+            stat.setString (7, detail3.getText());
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Data Buku Rusak/Hilang Derhasil Di Update");
+            clear();
+            f_idbuku3.requestFocus();
+            datatblbukurusak();
+      } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Data Gagal Di Update)"+ex);
+        }
+    }//GEN-LAST:event_editrusakActionPerformed
+
+    private void hapusrusakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusrusakActionPerformed
+        int ok =JOptionPane.showConfirmDialog(null,"Hapus Data Buku "+f_idbuku3.getText()+"?","Konfirmasi Dialog",
+            JOptionPane.YES_NO_CANCEL_OPTION);
+        if (ok==0){
+            String sql ="delete from rusak where id ='"+f_idbuku3.getText()+"'";
+            try {
+                PreparedStatement stat = con.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Data Berhasil di Hapus");
+                clear();
+                f_idbuku3.requestFocus();
+                datatblbukurusak();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "Gagal Menghapus Data"+e);
+
+            }
+        }
+    }//GEN-LAST:event_hapusrusakActionPerformed
+
+    private void btn_exit_panel_input3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_input3ActionPerformed
+        menukosong();// TODO add your handling code here:
+    }//GEN-LAST:event_btn_exit_panel_input3ActionPerformed
+
+    private void tblbuku3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblbuku3MouseClicked
+        int bar = 0;
+        bar = tblbuku3.getSelectedRow();
+        f_idbuku3.setText(tabmode4.getValueAt(bar, 0).toString());
+        f_judul3.setText(tabmode4.getValueAt(bar, 1).toString());
+        f_penulis3.setText(tabmode4.getValueAt(bar, 2).toString());
+        f_penerbit3.setText(tabmode4.getValueAt(bar, 3).toString());
+        f_tahun3.setText(tabmode4.getValueAt(bar, 4).toString());
+        f_kategori3.setText(tabmode4.getValueAt(bar, 5).toString());
+        detail3.setText(tabmode4.getValueAt(bar, 6).toString());
+        f_idbuku3.setEditable(false);
+    }//GEN-LAST:event_tblbuku3MouseClicked
+
+    private void panel_bukurusakComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panel_bukurusakComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panel_bukurusakComponentHidden
+
+    private void cari3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari3ActionPerformed
+        String sql = "select * from buku_master where id='"+f_idbuku3.getText()+"'";//where id='"+f_idbuku3+"'";
+            try{
+                PreparedStatement stat = con.prepareStatement(sql);
+                ResultSet hasil = stat.executeQuery(sql);
+                while(hasil.next()){
+                    f_idbuku3.setText(hasil.getString("id"));
+                    f_judul3.setText(hasil.getString("judul"));
+                    f_penulis3.setText(hasil.getString("penulis"));
+                    f_penerbit3.setText(hasil.getString("penerbit"));
+                    f_tahun3.setText(hasil.getString("tahun"));
+                    f_kategori3.setText(hasil.getString("kategori"));
+                }
+            }catch (SQLException e){
+            JOptionPane.showMessageDialog(null,"Gagal Melihat Tabel"+e);
+            }    
+    }//GEN-LAST:event_cari3ActionPerformed
+
+    private void btn_exit_panel_input4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exit_panel_input4ActionPerformed
+        menukosong();
+    }//GEN-LAST:event_btn_exit_panel_input4ActionPerformed
+
+    private void panel_laporanComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_panel_laporanComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panel_laporanComponentHidden
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try{
+            Connection con=new koneksi().open();
+            File namaFile = new File("C:\\Users\\Arun Nurhuda\\Documents\\NetBeansProjects\\MyPerpus\\src\\laporan\\peminjaman.jrxml");
+            //HashMap hash = new HashMap();
+            //hash.put("ID", (String) cbox.getSelectedItem());
+            //System.out.println((String) cbox.getSelectedItem());
+            JasperDesign jasperDesign = JRXmlLoader.load(namaFile);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+            JasperViewer.viewReport(jasperPrint, false);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+           
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try{
+            Connection con=new koneksi().open();
+            File namaFile = new File("C:\\Users\\Arun Nurhuda\\Documents\\NetBeansProjects\\MyPerpus\\src\\laporan\\bukurusak.jrxml");
+            //HashMap hash = new HashMap();
+            //hash.put("ID", (String) cbox.getSelectedItem());
+            //System.out.println((String) cbox.getSelectedItem());
+            JasperDesign jasperDesign = JRXmlLoader.load(namaFile);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+            JasperViewer.viewReport(jasperPrint, false);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+           
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try{
+            Connection con=new koneksi().open();
+            File namaFile = new File("C:\\Users\\Arun Nurhuda\\Documents\\NetBeansProjects\\MyPerpus\\src\\laporan\\pengembalian.jrxml");
+            //HashMap hash = new HashMap();
+            //hash.put("ID", (String) cbox.getSelectedItem());
+            //System.out.println((String) cbox.getSelectedItem());
+            JasperDesign jasperDesign = JRXmlLoader.load(namaFile);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+            JasperViewer.viewReport(jasperPrint, false);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+           
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            Connection con=new koneksi().open();
+            File namaFile = new File("C:\\Users\\Arun Nurhuda\\Documents\\NetBeansProjects\\MyPerpus\\src\\laporan\\anggota.jrxml");
+            //HashMap hash = new HashMap();
+            //hash.put("ID", (String) cbox.getSelectedItem());
+            //System.out.println((String) cbox.getSelectedItem());
+            JasperDesign jasperDesign = JRXmlLoader.load(namaFile);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+            JasperViewer.viewReport(jasperPrint, false);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+           
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        try{
+            Connection con=new koneksi().open();
+            File namaFile = new File("C:\\Users\\Arun Nurhuda\\Documents\\NetBeansProjects\\MyPerpus\\src\\laporan\\buku.jrxml");
+            //HashMap hash = new HashMap();
+            //hash.put("ID", (String) cbox.getSelectedItem());
+            //System.out.println((String) cbox.getSelectedItem());
+            JasperDesign jasperDesign = JRXmlLoader.load(namaFile);
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, con);
+            JasperViewer.viewReport(jasperPrint, false);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+           
+        }
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     public void searchTableContents(String searchString) {
     DefaultTableModel currtableModel = (DefaultTableModel)tblbuku1.getModel();
@@ -2786,6 +3419,8 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JButton btn_exit_panel_input;
     private javax.swing.JButton btn_exit_panel_input1;
     private javax.swing.JButton btn_exit_panel_input2;
+    private javax.swing.JButton btn_exit_panel_input3;
+    private javax.swing.JButton btn_exit_panel_input4;
     private javax.swing.JButton btn_exit_panel_reg_admin;
     private javax.swing.JButton btn_exit_panel_register;
     private javax.swing.JButton btn_exit_panel_register1;
@@ -2797,11 +3432,13 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JButton btn_side_pinjam;
     private javax.swing.JButton btn_side_reg_admin;
     private javax.swing.JButton btn_side_reg_anggota;
+    private javax.swing.JButton btn_side_rusak;
     private javax.swing.JButton btncari;
     private javax.swing.JButton btncaripinjam;
     private javax.swing.ButtonGroup btngroup_gender;
     private javax.swing.ButtonGroup btngroup_kategori;
     private javax.swing.JPasswordField c;
+    private javax.swing.JButton cari3;
     private javax.swing.JRadioButton cbagama;
     private javax.swing.JRadioButton cbbahasa;
     private javax.swing.JRadioButton cbmipa;
@@ -2814,18 +3451,23 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JRadioButton cbumum;
     private javax.swing.JButton cekdenda;
     private javax.swing.JTextField denda;
+    private javax.swing.JTextArea detail3;
     private javax.swing.JButton editanggota;
     private javax.swing.JButton editbuku;
     private javax.swing.JButton editpinjam;
+    private javax.swing.JButton editrusak;
     private javax.swing.JTextField f_cari;
     private javax.swing.JTextField f_cari1;
     private javax.swing.JTextField f_hp;
     private javax.swing.JTextField f_idanggota2;
     private javax.swing.JTextField f_idbuku;
     private javax.swing.JTextField f_idbuku2;
+    private javax.swing.JTextField f_idbuku3;
     private javax.swing.JTextField f_judul;
     private javax.swing.JTextField f_judul1;
     private javax.swing.JTextField f_judul2;
+    private javax.swing.JTextField f_judul3;
+    private javax.swing.JTextField f_kategori3;
     private javax.swing.JTextField f_kelas;
     private javax.swing.JTextField f_nama;
     private javax.swing.JTextField f_nama1;
@@ -2835,14 +3477,25 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JTextField f_penerbit;
     private javax.swing.JTextField f_penerbit1;
     private javax.swing.JTextField f_penerbit2;
+    private javax.swing.JTextField f_penerbit3;
     private javax.swing.JTextField f_penulis;
+    private javax.swing.JTextField f_penulis3;
     private javax.swing.JTextField f_tahun;
+    private javax.swing.JTextField f_tahun3;
     private javax.swing.JPanel footer;
     private javax.swing.JButton hapusanggota;
     private javax.swing.JButton hapusbuku;
     private javax.swing.JButton hapuspinjam;
+    private javax.swing.JButton hapusrusak;
     private javax.swing.JPanel header;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -2864,6 +3517,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -2881,6 +3535,11 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2897,7 +3556,11 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2911,11 +3574,15 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel menukosong;
+    private javax.swing.JPanel panel_bukurusak;
     private javax.swing.JPanel panel_caribuku;
     private javax.swing.JPanel panel_input_buku;
+    private javax.swing.JPanel panel_laporan;
     private javax.swing.JPanel panel_pengembalian;
     private javax.swing.JPanel panel_pinjam;
     private javax.swing.JPanel panel_reg_admin;
@@ -2926,11 +3593,13 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel sidepanel;
     private javax.swing.JButton simpanbalik;
     private javax.swing.JButton simpanbuku;
+    private javax.swing.JButton simpanrusak;
     private javax.swing.JButton tambahanggota;
     private javax.swing.JTable tbladmin;
     private javax.swing.JTable tblanggota;
     private javax.swing.JTable tblbuku;
     private javax.swing.JTable tblbuku1;
+    private javax.swing.JTable tblbuku3;
     private javax.swing.JTable tblpinjam;
     private javax.swing.JTable tblpinjam1;
     private com.toedter.calendar.JDateChooser tgl1;

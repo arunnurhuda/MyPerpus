@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93fd2971-9e7d-4020-bd29-28cdd7ba3493">
-	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.zoom" value="1.2100000000000006"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
@@ -38,18 +38,18 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="107" splitType="Stretch">
+		<band height="76" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="3cae5b05-9cb7-4a0a-8ae4-b53f7098a1af" style="Title" x="169" y="0" width="457" height="62"/>
+				<reportElement uuid="3cae5b05-9cb7-4a0a-8ae4-b53f7098a1af" style="Title" x="169" y="0" width="457" height="48"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Calibri" size="40" pdfFontName="Times-Roman"/>
+					<font fontName="Calibri" size="28" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[DAFTAR KOLEKSI BUKU]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c6327113-5b52-442d-93a2-13108cba97eb" style="SubTitle" x="255" y="62" width="287" height="22"/>
-				<textElement>
-					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				<reportElement uuid="c6327113-5b52-442d-93a2-13108cba97eb" style="SubTitle" x="254" y="48" width="287" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="16" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[Perpustakaan SMK Lentera Bangsa II]]></text>
 			</staticText>
@@ -68,32 +68,44 @@
 			</line>
 			<staticText>
 				<reportElement uuid="2cf2cd7c-fba3-4bea-ab1c-67383af9f370" style="Column header" x="0" y="0" width="86" height="15" forecolor="#736343"/>
-				<textElement/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="85587453-d412-4ae8-94a5-fe79bd93d86c" style="Column header" x="86" y="0" width="180" height="15" forecolor="#736343"/>
-				<textElement/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[Judul]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="62dcbac5-844b-4722-9b7e-2af76e20f9a0" style="Column header" x="266" y="0" width="152" height="15" forecolor="#736343"/>
-				<textElement/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[Penulis]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="79526c51-07a3-4b25-a9d4-378f0b8d66b5" style="Column header" x="418" y="0" width="164" height="15" forecolor="#736343"/>
-				<textElement/>
+				<reportElement uuid="79526c51-07a3-4b25-a9d4-378f0b8d66b5" style="Column header" x="418" y="0" width="196" height="15" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[Penerbit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="e7e6856c-52a8-434b-8b94-3d073f73b3fd" style="Column header" x="582" y="0" width="83" height="15" forecolor="#736343"/>
-				<textElement/>
+				<reportElement uuid="e7e6856c-52a8-434b-8b94-3d073f73b3fd" style="Column header" x="614" y="1" width="83" height="15" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[Tahun Terbit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8d514fd7-c85a-4246-a6e6-d80380341ac9" style="Column header" x="665" y="0" width="133" height="15" forecolor="#736343"/>
-				<textElement/>
+				<reportElement uuid="8d514fd7-c85a-4246-a6e6-d80380341ac9" style="Column header" x="697" y="0" width="101" height="15" forecolor="#736343"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<text><![CDATA[kategori]]></text>
 			</staticText>
 		</band>
@@ -104,32 +116,44 @@
 				<reportElement uuid="0e3f1a79-797f-4b08-82c4-7cdc9c681790" style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
 				<textField isStretchWithOverflow="true">
 					<reportElement uuid="bad3a8fa-1255-4914-911a-491660f35d19" style="Detail" x="0" y="0" width="86" height="15"/>
-					<textElement verticalAlignment="Middle"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement uuid="bb0097ed-3ed2-4539-ac32-4178fb1b85d6" style="Detail" x="86" y="0" width="180" height="15"/>
-					<textElement verticalAlignment="Middle"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{judul}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
 					<reportElement uuid="f3afd88e-8bd1-4d19-a9ed-bac2394eb3ef" style="Detail" x="266" y="0" width="152" height="15"/>
-					<textElement verticalAlignment="Middle"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{penulis}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="927aee57-489a-4d9e-93b3-bf664594c75e" style="Detail" x="418" y="0" width="164" height="15"/>
-					<textElement verticalAlignment="Middle"/>
+					<reportElement uuid="927aee57-489a-4d9e-93b3-bf664594c75e" style="Detail" x="418" y="0" width="196" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{penerbit}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="0b8d99c8-6335-42b6-a46f-f27134d65294" style="Detail" x="582" y="0" width="83" height="15"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<reportElement uuid="0b8d99c8-6335-42b6-a46f-f27134d65294" style="Detail" x="614" y="0" width="83" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{tahun}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement uuid="e0701c32-513e-45f3-9aad-4877262a4499" style="Detail" x="665" y="0" width="133" height="15"/>
-					<textElement verticalAlignment="Middle"/>
+					<reportElement uuid="e0701c32-513e-45f3-9aad-4877262a4499" style="Detail" x="697" y="0" width="101" height="15"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{kategori}]]></textFieldExpression>
 				</textField>
 			</frame>
